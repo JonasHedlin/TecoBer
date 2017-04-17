@@ -7,6 +7,6 @@ namespace TecoBerBP.Models.Test
 {
     public class IndexVM
     {
-
+        int i = 0;
     }
 }
