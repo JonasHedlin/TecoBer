@@ -8,8 +8,8 @@
     <ProjectGuid>{C6CB9612-3D56-4FA4-9569-05B8FF50361C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TecoBer365.Tests</RootNamespace>
-    <AssemblyName>TecoBer365.Tests</AssemblyName>
+    <RootNamespace>TecoBerBP.Tests</RootNamespace>
+    <AssemblyName>TecoBerBP.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -91,9 +91,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TecoBer365\TecoBer365.csproj">
+    <ProjectReference Include="..\TecoBerBP\TecoBerBP.csproj">
       <Project>{EB9E14DB-556D-48B7-858C-700D41D8666D}</Project>
-      <Name>TecoBer365</Name>
+      <Name>TecoBerBP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
