@@ -15,15 +15,15 @@ namespace TecoBerBP.Models
             _context = context;
         }
 
-        public async Task EnsureSeedData()
-        {
+        //public async Task EnsureSeedData()
+        //{
 
-            // Add some data in the database.
+        //    // Add some data in the database.
 
 
 
-            await _context.SaveChangesAsync();
-        }
+        //    await _context.SaveChangesAsync();
+        //}
 
     }
 }
