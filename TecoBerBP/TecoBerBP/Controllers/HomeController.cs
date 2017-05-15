@@ -27,5 +27,12 @@ namespace TecoBerBP.Controllers
 
             return View();
         }
+
+        public ActionResult BusinessPartner()
+        {
+            ViewBag.Message = "Följande konsulter är även Business Partners.";
+
+            return View();
+        }
     }
 }
