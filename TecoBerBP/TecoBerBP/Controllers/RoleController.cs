@@ -67,11 +67,6 @@ namespace TecoBerBP.Controllers
 
             return View("CreateRole");
         }
-
-        //// GET: Role
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        
     }
 }

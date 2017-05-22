@@ -13,7 +13,7 @@ namespace TecoBerBP.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201705211527251_Initial"; }
+            get { return "201705220847303_Initial"; }
         }
         
         string IMigrationMetadata.Source
