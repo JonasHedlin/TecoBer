@@ -5,14 +5,15 @@ namespace TecoBerBP.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<TecoBerBP.Infrastucture.BuisinesPartnerDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<TecoBerBP.Infrastucture.BusinessPartnerDb>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(TecoBerBP.Infrastucture.BuisinesPartnerDb context)
+        protected override void Seed(TecoBerBP.Infrastucture.BusinessPartnerDb context)
         {
             //  This method will be called after migrating to the latest version.
 
