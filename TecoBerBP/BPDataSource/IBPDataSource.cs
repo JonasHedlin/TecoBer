@@ -10,5 +10,7 @@ namespace BPDataSource
     {
         IQueryable<Activity> Activities { get; } // activities
         //IQueryable<Department> Departments { get; }
+
+        void Save();
     }
 }

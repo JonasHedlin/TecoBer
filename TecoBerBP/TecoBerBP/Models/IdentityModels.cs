@@ -29,6 +29,11 @@ namespace TecoBerBP.Models
 
         public DbSet<Activity> Activities { get; set; }
 
+        void IBPDataSource.Save()
+        {
+            SaveChanges();
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
