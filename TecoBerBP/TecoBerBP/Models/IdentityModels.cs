@@ -3,6 +3,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Linq;
+using BPDataSource;
+
 
 namespace TecoBerBP.Models
 {
@@ -18,15 +21,23 @@ namespace TecoBerBP.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IBPDataSource
     {
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
+        public DbSet<Activity> Activities { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        IQueryable<Activity> IBPDataSource.Activities //Activities
+        {
+            get { return Activities; }
+        }
+
     }
 }

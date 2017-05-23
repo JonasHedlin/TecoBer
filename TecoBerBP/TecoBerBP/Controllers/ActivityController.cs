@@ -10,11 +10,11 @@ namespace TecoBerBP.Controllers
 {
     public class ActivityController : Controller
     {
-        private xxx _context;
+        private ApplicationDbContext _context;
 
         public ActivityController()
         {
-            _context = new xxx();
+            _context = new ApplicationDbContext();
         }
         
         // GET: Activity
@@ -31,8 +31,8 @@ namespace TecoBerBP.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var Activity = _context.Activity.ToList();
-            return View(Activity);
+            var ActivityList = _context.Activities.ToList();
+            return View(ActivityList);
         }
     }
 }
