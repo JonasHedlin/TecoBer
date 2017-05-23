@@ -22,7 +22,7 @@ namespace TecoBerBP.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                
+                // Do whats need to be done when user is authenticated and want to see the activity list.
 
                 
             }

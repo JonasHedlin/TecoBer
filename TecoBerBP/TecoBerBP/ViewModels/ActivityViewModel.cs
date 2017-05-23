@@ -18,6 +18,6 @@ namespace TecoBerBP.ViewModels
         public int Duration { get; set; }
 
         [Required]
-        public string DurationValue { get; set; }
+        public int DurationUnit { get; set; }
     }
 }
