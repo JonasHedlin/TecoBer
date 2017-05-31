@@ -3,75 +3,87 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TecoBerBP.Models;
-using TecoBerBP.ViewModels;
 
 namespace TecoBerBP.Controllers
 {
     public class ActivityController : Controller
     {
-        private ApplicationDbContext _context;
-
-        public ActivityController()
-        {
-            _context = new ApplicationDbContext();
-        }
-        
-        [HttpGet]
+        // GET: Activity
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                // Do whats need to be done when user is authenticated and want to see the activity list.
-
-                
-
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            var ActivityList = _context.Activities.ToList();
-            return View(ActivityList);
+            return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(ActivityViewModel model)
+        // GET: Activity/Details/5
+        public ActionResult Details(int id)
         {
-            if (User.Identity.IsAuthenticated)
-            {                
-                // Add new activity here!
-                if (ModelState.IsValid)
-                {
-                    ApplicationDbContext context = new ApplicationDbContext();                    
-                    var activity = new ActivityViewModel(); // _context.Activities.Single(a => a.Id == viewModel.Activityid);
-                    activity.Name = model.Name;
-                    activity.Duration = model.Duration;
-                    activity.DurationUnit = model.DurationUnit;
-                    activity.Point = model.Point;
-                    context.SaveChanges();                    
-
-                    ModelState.Clear();
-
-                    ViewBag.UserMessage = "New activity created!";
-                }
-                else
-                {
-                    ViewBag.UserMessage = "No activity where created!";
-
-                    return RedirectToAction("Index", "Activity");
-                }
-
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            var ActivityList = _context.Activities.ToList();
-            return View(ActivityList);
+            return View();
         }
 
+        // GET: Activity/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Activity/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Activity/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Activity/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Activity/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Activity/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

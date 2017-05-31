@@ -9,8 +9,9 @@ namespace BPDataSource
     public interface IBPDataSource
     {
         IQueryable<Activity> Activities { get; } // activities
-        //IQueryable<Department> Departments { get; }
+        //IQueryable<BPUser> BPUsers { get; } // Berotec users
 
         void Save();
+
     }
 }

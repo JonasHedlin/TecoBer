@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using BPDataSource;
+using System.ComponentModel;
 
 namespace TecoBerBP.ViewModels
 {
@@ -18,6 +20,10 @@ namespace TecoBerBP.ViewModels
         public int Duration { get; set; }
 
         [Required]
-        public int DurationUnit { get; set; }
+        [DisplayName("Duration Unit")]
+        public string DurationUnit { get; set; }
+
+        //public IEnumerable<Activity> Activities { get; set; }
+
     }
 }

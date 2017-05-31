@@ -21,10 +21,10 @@ namespace TecoBerBP.Migrations
             context.Activities.AddOrUpdate(
                 a => a.Name,
                 new BPDataSource.Activity { Name = "Kundbesök", Duration = 12, DurationUnit = (int)durationUnit.Month, Point = 1 },
-                new BPDataSource.Activity { Name = "Kundmottagning", Duration = 12, DurationUnit = 3, Point = 1 },
-                new BPDataSource.Activity { Name = "Kundevent", Duration = 12, DurationUnit = 3, Point = 1 },
-                new BPDataSource.Activity { Name = "Konsultrekrytering", Duration = 12, DurationUnit = 3, Point = 1 },
-                new BPDataSource.Activity { Name = "Internuppdrag", Duration = 12, DurationUnit = 3, Point = 2 }
+                new BPDataSource.Activity { Name = "Kundmottagning", Duration = 12, DurationUnit = (int)durationUnit.Month, Point = 1 },
+                new BPDataSource.Activity { Name = "Kundevent", Duration = 12, DurationUnit = (int)durationUnit.Month, Point = 1 },
+                new BPDataSource.Activity { Name = "Konsultrekrytering", Duration = 12, DurationUnit = (int)durationUnit.Month, Point = 1 },
+                new BPDataSource.Activity { Name = "Internuppdrag", Duration = 12, DurationUnit = (int)durationUnit.Month, Point = 2 }
                 );
         }
     }
