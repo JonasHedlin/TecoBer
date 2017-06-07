@@ -11,6 +11,7 @@ using TecoBerBP.Models;
 
 namespace TecoBerBP.Controllers
 {
+    [Authorize]
     public class BPUsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
