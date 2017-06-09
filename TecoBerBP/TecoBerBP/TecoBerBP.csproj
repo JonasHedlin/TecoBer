@@ -191,9 +191,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastucture\BusinessPartnerDb.cs" />
-    <Compile Include="Migrations\201705211527251_Initial.cs" />
-    <Compile Include="Migrations\201705211527251_Initial.Designer.cs">
-      <DependentUpon>201705211527251_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705220847303_Initial.cs" />
+    <Compile Include="Migrations\201705220847303_Initial.Designer.cs">
+      <DependentUpon>201705220847303_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Infrastucture\IBPDataSource.cs" />
@@ -270,8 +270,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705211527251_Initial.resx">
-      <DependentUpon>201705211527251_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705220847303_Initial.resx">
+      <DependentUpon>201705220847303_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
