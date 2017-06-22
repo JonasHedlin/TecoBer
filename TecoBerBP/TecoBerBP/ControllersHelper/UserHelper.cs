@@ -17,15 +17,21 @@ namespace TecoBerBP.ControllersHelper
         {
             if (user.IsAuthenticated) // User.Identity.IsAuthenticated
             {
-                //var user = User.Identity;
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var s = UserManager.GetRoles(user.GetUserId());
-                if (s[0].ToString() == "Admin")
+                try
                 {
-                    return true;
+                    ApplicationDbContext context = new ApplicationDbContext();
+                    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                    var s = UserManager.GetRoles(user.GetUserId());
+                    if (s[0].ToString() == "Admin")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     return false;
                 }
