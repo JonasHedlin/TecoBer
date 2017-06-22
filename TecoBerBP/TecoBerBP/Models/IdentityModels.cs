@@ -28,6 +28,7 @@ namespace TecoBerBP.Models
         }
 
         public DbSet<Activity> Activities { get; set; }
+        public DbSet<BPUser> BPUsers { get; set; }
 
         void IBPDataSource.Save()
         {

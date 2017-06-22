@@ -28,7 +28,7 @@ namespace TecoBerBP.Controllers
             {
                 var user = User.Identity;
 
-                if (!UserHelper.IsAdminUser(user))
+                if (!UserHelper.IsAdminUser(user)) // Only administrator have access to this page.
                 {
                     return RedirectToAction("Index", "Home");
                 }
@@ -54,8 +54,8 @@ namespace TecoBerBP.Controllers
             // Add new role here!
             if (ModelState.IsValid)
             {
-                ApplicationDbContext context = new ApplicationDbContext();
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                //ApplicationDbContext context = new ApplicationDbContext();
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
 
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
                 role.Name = model.Name;
@@ -67,6 +67,15 @@ namespace TecoBerBP.Controllers
             }
 
             return View("CreateRole");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

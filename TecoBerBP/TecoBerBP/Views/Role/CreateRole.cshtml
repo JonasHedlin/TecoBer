@@ -18,6 +18,10 @@
             </div>
         </form>
 
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
         @if (ViewBag.UserMessage != null)
         {
             <div>@ViewBag.UserMessage</div>

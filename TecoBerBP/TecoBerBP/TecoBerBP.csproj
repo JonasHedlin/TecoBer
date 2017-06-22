@@ -191,7 +191,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="ControllersHelper\UserHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\BPUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -290,6 +291,17 @@
     <Content Include="Views\Activity\Index.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Activity\CreateActivity.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\BPUsers\Create.cshtml" />
+    <Content Include="Views\BPUsers\Delete.cshtml" />
+    <Content Include="Views\BPUsers\Details.cshtml" />
+    <Content Include="Views\BPUsers\Edit.cshtml" />
+    <Content Include="Views\BPUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
