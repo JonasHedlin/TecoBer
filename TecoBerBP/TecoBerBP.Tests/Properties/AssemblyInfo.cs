@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TecoBer365")]
+[assembly: AssemblyTitle("TecoBer365.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TecoBer365")]
+[assembly: AssemblyProduct("TecoBer365.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0640d2f2-4703-4b59-b29d-a7a2b1a8e10a")]
+[assembly: Guid("1664352c-00b4-45bc-8b20-e84a9a98abd0")]
 
 // Version information for an assembly consists of the following four values:
 //

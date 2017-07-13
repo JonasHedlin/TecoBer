@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP", "TecoBerBP\TecoBerBP.csproj", "{DCB314B9-DE3B-4DBA-96E1-86534B4D56C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP", "TecoBerBP\TecoBerBP.csproj", "{EB9E14DB-556D-48B7-858C-700D41D8666D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP.Tests", "TecoBerBP.Tests\TecoBerBP.Tests.csproj", "{C6CB9612-3D56-4FA4-9569-05B8FF50361C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DCB314B9-DE3B-4DBA-96E1-86534B4D56C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCB314B9-DE3B-4DBA-96E1-86534B4D56C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCB314B9-DE3B-4DBA-96E1-86534B4D56C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCB314B9-DE3B-4DBA-96E1-86534B4D56C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB9E14DB-556D-48B7-858C-700D41D8666D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9E14DB-556D-48B7-858C-700D41D8666D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9E14DB-556D-48B7-858C-700D41D8666D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9E14DB-556D-48B7-858C-700D41D8666D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

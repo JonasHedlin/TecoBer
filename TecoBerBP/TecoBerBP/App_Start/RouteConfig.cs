@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace TecoBerBP
+namespace TecoBer365
 {
     public class RouteConfig
     {
