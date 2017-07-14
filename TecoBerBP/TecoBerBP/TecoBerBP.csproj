@@ -187,7 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BPActivitiesController.cs" />
-    <Compile Include="Controllers\BPRoleController.cs" />
+    <Compile Include="Controllers\BPRolesController.cs" />
     <Compile Include="Controllers\BPUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -262,11 +262,11 @@
     <Content Include="Views\BPActivities\Index.cshtml" />
     <Content Include="Views\BPRoles\CreateRole.cshtml" />
     <Content Include="Views\BPRoles\Index.cshtml" />
-    <Content Include="Views\BPUser\Create.cshtml" />
-    <Content Include="Views\BPUser\Delete.cshtml" />
-    <Content Include="Views\BPUser\Details.cshtml" />
-    <Content Include="Views\BPUser\Edit.cshtml" />
-    <Content Include="Views\BPUser\Index.cshtml" />
+    <Content Include="Views\BPUsers\Create.cshtml" />
+    <Content Include="Views\BPUsers\Delete.cshtml" />
+    <Content Include="Views\BPUsers\Details.cshtml" />
+    <Content Include="Views\BPUsers\Edit.cshtml" />
+    <Content Include="Views\BPUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

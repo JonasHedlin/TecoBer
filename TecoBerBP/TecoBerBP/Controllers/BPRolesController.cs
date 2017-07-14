@@ -15,13 +15,9 @@ namespace TecoBerBP.Controllers
     [Authorize]
     public class BPRolesController : Controller
     {
-        private TecoBerBPContext _context;
+        private TecoBerBPContext _context = new TecoBerBPContext();
 
-        //public RoleController()
-        //{
-        //    _context = new TecoBerBPContext();
-        //}
-
+        
         public ActionResult Index()
         {
 
