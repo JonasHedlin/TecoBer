@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP", "TecoBerBP\Teco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP.Tests", "TecoBerBP.Tests\TecoBerBP.Tests.csproj", "{C6CB9612-3D56-4FA4-9569-05B8FF50361C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP.DataModel", "TecoBerBP.DataModel\TecoBerBP.DataModel.csproj", "{BB5B0266-10B7-4604-89E2-AEEEA5E7217E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TecoBerBP.DataClasses", "TecoBerBP.DataClasses\TecoBerBP.DataClasses.csproj", "{3A52EAEE-E6E6-40A1-B14C-7A009C2A85FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6CB9612-3D56-4FA4-9569-05B8FF50361C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5B0266-10B7-4604-89E2-AEEEA5E7217E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5B0266-10B7-4604-89E2-AEEEA5E7217E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5B0266-10B7-4604-89E2-AEEEA5E7217E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5B0266-10B7-4604-89E2-AEEEA5E7217E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A52EAEE-E6E6-40A1-B14C-7A009C2A85FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A52EAEE-E6E6-40A1-B14C-7A009C2A85FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A52EAEE-E6E6-40A1-B14C-7A009C2A85FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A52EAEE-E6E6-40A1-B14C-7A009C2A85FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

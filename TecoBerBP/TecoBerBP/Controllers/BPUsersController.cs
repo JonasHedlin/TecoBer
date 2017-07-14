@@ -6,7 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TecoBerBP.Models;
+using TecoBerBP.DataModel;
+using TecoBerBP.DataClasses;
 
 
 namespace TecoBerBP.Controllers
@@ -14,7 +15,7 @@ namespace TecoBerBP.Controllers
     [Authorize]
     public class BPUsersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private TecoBerBPContext db = new TecoBerBPContext();
 
         // GET: BPUsers
         public ActionResult Index()

@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+//using Microsoft.AspNet.Identity;
+//using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TecoBerBP.Models;
-using TecoBerBP.ControllersHelper;
+using TecoBerBP.DataModel;
+//using TecoBerBP.ControllersHelper;
 using TecoBerBP.ViewModels;
+using TecoBerBP.DataClasses;
 
 namespace TecoBerBP.Controllers
 {
     [Authorize]
     public class BPRolesController : Controller
     {
-        private ApplicationDbContext _context;
+        private TecoBerBPContext _context;
 
-        public RoleController()
-        {
-            _context = new ApplicationDbContext();
-        }
+        //public RoleController()
+        //{
+        //    _context = new TecoBerBPContext();
+        //}
 
         public ActionResult Index()
         {
@@ -28,17 +29,17 @@ namespace TecoBerBP.Controllers
             {
                 var user = User.Identity;
 
-                if (!UserHelper.IsAdminUser(user)) // Only administrator have access to this page.
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+                //if (!UserHelper.IsAdminUser(user)) // Only administrator have access to this page.
+                //{
+                //    return RedirectToAction("Index", "Home");
+                //}
             }
             else
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            var Roles = _context.Roles.ToList();
+            var Roles = _context.BPRoles.ToList();
             return View(Roles);
         }
 
@@ -49,17 +50,17 @@ namespace TecoBerBP.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RoleViewModel model)
+        public ActionResult Create(BPRoleViewModel model)
         {
             // Add new role here!
             if (ModelState.IsValid)
             {
                 //ApplicationDbContext context = new ApplicationDbContext();
-                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
+                //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
 
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
-                role.Name = model.Name;
-                roleManager.Create(role);
+                //var role = new BPRole();  // Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
+                //role.Name = model.Name;
+                //roleManager.Create(role);
 
                 ModelState.Clear();
 

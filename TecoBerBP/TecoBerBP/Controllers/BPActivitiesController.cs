@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TecoBerBP.Models;
+using TecoBerBP.DataModel;
+using TecoBerBP.DataClasses;
 
 namespace TecoBerBP.Controllers
 {
     [Authorize]
     public class BPActivitiesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private TecoBerBPContext db = new TecoBerBPContext();
 
         // GET: Activities
         public ActionResult Index()
         {
-            return View(db.Activities.ToList());
+            return View(db.BPActivities.ToList());
         }
 
         // GET: Activities/Details/5
@@ -28,7 +29,7 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
+            BPActivity activity = db.BPActivities.Find(id);
             if (activity == null)
             {
                 return HttpNotFound();
@@ -47,11 +48,11 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Point,Duration,DurationUnit")] Activity activity)
+        public ActionResult Create([Bind(Include = "Id,Name,Point,Duration,DurationUnit")] BPActivity activity)
         {
             if (ModelState.IsValid)
             {
-                db.Activities.Add(activity);
+                db.BPActivities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +67,7 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
+            BPActivity activity = db.BPActivities.Find(id);
             if (activity == null)
             {
                 return HttpNotFound();
@@ -79,7 +80,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Point,Duration,DurationUnit")] Activity activity)
+        public ActionResult Edit([Bind(Include = "Id,Name,Point,Duration,DurationUnit")] BPActivity activity)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +98,7 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity activity = db.Activities.Find(id);
+            BPActivity activity = db.BPActivities.Find(id);
             if (activity == null)
             {
                 return HttpNotFound();
@@ -110,8 +111,8 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Activity activity = db.Activities.Find(id);
-            db.Activities.Remove(activity);
+            BPActivity activity = db.BPActivities.Find(id);
+            db.BPActivities.Remove(activity);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
