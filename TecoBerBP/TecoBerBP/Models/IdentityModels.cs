@@ -45,5 +45,9 @@ namespace TecoBerBP.Models
             get { return Activities; }
         }
 
+        IQueryable<BPUser> IBPDataSource.BPUsers //BPUsers
+        {
+            get { return BPUsers; }
+        }
     }
 }

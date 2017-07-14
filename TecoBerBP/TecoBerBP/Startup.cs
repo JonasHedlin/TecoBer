@@ -25,7 +25,7 @@ namespace TecoBerBP
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            // First create Admin Role and then a default Admin User.
+            // First create Admin Role and then a default Admin User.   
             if (!roleManager.RoleExists("Admin"))
             {
 
