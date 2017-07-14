@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-namespace TecoBer365
+namespace TecoBerBP
 {
     public partial class Startup
     {

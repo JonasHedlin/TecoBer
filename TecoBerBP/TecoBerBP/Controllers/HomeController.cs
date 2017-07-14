@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TecoBer365.Controllers
+namespace TecoBerBP.Controllers
 {
     [Authorize]
     public class HomeController : Controller

@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security;
 
-namespace TecoBer365.Controllers
+namespace TecoBerBP.Controllers
 {
     public class AccountController : Controller
     {

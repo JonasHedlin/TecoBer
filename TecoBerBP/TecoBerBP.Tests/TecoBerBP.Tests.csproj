@@ -92,8 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TecoBerBP\TecoBerBP.csproj">
-      <Project>{EB9E14DB-556D-48B7-858C-700D41D8666D}</Project>
-      <Name>TecoBer365</Name>
+      <Project>{eb9e14db-556d-48b7-858c-700d41d8666d}</Project>
+      <Name>TecoBerBP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

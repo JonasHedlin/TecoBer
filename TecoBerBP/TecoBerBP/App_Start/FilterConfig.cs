@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace TecoBer365
+namespace TecoBerBP
 {
     public class FilterConfig
     {

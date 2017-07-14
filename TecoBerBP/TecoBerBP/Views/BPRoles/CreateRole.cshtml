@@ -1,0 +1,31 @@
+﻿@model TecoBerBP.ViewModels.RoleViewModel
+@{
+    ViewBag.Title = "CreateRole";
+}
+
+<div class="row">
+    <div class="col-md-6 col-xs-8">
+        <h2>Create new role</h2>
+        <p>Create new role by typing in the name and press the add button.</p>
+
+        <form method="post">
+            <div class="form-group">
+                <label name="Name">Name of role</label>
+                <input name="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </form>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @if (ViewBag.UserMessage != null)
+        {
+            <div>@ViewBag.UserMessage</div>
+        }
+
+    </div>
+</div>

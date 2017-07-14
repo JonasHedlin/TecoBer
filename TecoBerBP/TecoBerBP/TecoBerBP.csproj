@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TecoBer365</RootNamespace>
-    <AssemblyName>TecoBer365</AssemblyName>
+    <RootNamespace>TecoBerBP</RootNamespace>
+    <AssemblyName>TecoBerBP</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -255,6 +255,18 @@
     <Content Include="Views\Account\SignOutCallback.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\BPActivities\Create.cshtml" />
+    <Content Include="Views\BPActivities\Delete.cshtml" />
+    <Content Include="Views\BPActivities\Details.cshtml" />
+    <Content Include="Views\BPActivities\Edit.cshtml" />
+    <Content Include="Views\BPActivities\Index.cshtml" />
+    <Content Include="Views\BPRoles\CreateRole.cshtml" />
+    <Content Include="Views\BPRoles\Index.cshtml" />
+    <Content Include="Views\BPUser\Create.cshtml" />
+    <Content Include="Views\BPUser\Delete.cshtml" />
+    <Content Include="Views\BPUser\Details.cshtml" />
+    <Content Include="Views\BPUser\Edit.cshtml" />
+    <Content Include="Views\BPUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

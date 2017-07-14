@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TecoBer365;
-using TecoBer365.Controllers;
+using TecoBerBP;
+using TecoBerBP.Controllers;
 
-namespace TecoBer365.Tests.Controllers
+namespace TecoBerBP.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
