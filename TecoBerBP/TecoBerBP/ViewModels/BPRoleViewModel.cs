@@ -10,5 +10,7 @@ namespace TecoBerBP.ViewModels
     {        
         [Required]
         public string Name { get; set; }
+        public int AuthenticationLevel { get; set; }
+
     }
 }

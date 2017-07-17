@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace TecoBerBP.DataClasses
 {
-    public class BPRole
+    public class BPTask
     {
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
-        public virtual int AuthenticationLevel { get; set; }
+        public virtual string Comment { get; set; }
+        public virtual int Point { get; set; }
+        public virtual DateTime Date { get; set; }
 
     }
 }

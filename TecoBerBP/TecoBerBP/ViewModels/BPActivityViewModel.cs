@@ -11,6 +11,9 @@ namespace TecoBerBP.ViewModels
     public class BPActivityViewModel
     {
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         [Required]

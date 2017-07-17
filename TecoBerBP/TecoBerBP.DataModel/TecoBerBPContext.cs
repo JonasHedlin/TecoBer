@@ -13,6 +13,6 @@ namespace TecoBerBP.DataModel
         public DbSet<BPActivity> BPActivities { get; set; }
         public DbSet<BPUser> BPUsers { get; set; }
         public DbSet<BPRole> BPRoles { get; set; }
-
+        public DbSet<BPTask> BPTasks { get; set; }
     }
 }

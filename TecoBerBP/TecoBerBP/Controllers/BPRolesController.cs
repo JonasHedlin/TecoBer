@@ -54,8 +54,8 @@ namespace TecoBerBP.Controllers
                 //ApplicationDbContext context = new ApplicationDbContext();
                 //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
 
-                //var role = new BPRole();  // Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
-                //role.Name = model.Name;
+                var role = new BPRole();  // Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
+                role.Name = model.Name;
                 //roleManager.Create(role);
 
                 ModelState.Clear();
@@ -65,6 +65,21 @@ namespace TecoBerBP.Controllers
 
             return View("CreateRole");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id, Name, AuthenticationLevel")] BPRole bPRole)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.BPRoles.Add(bPRole);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(bPRole);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

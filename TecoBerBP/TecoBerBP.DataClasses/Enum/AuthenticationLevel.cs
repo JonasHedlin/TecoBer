@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace TecoBerBP.DataClasses.Enum
 {
-    public enum AuthenticationLevel { User = 1, Econom = 5, Admin = 10 };
+    public enum AuthenticationLevel { User = 1, Economist = 5, Admin = 10 };
 
 }

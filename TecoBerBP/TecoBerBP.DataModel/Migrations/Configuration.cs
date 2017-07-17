@@ -9,7 +9,7 @@ namespace TecoBerBP.DataModel.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(TecoBerBP.DataModel.TecoBerBPContext context)
