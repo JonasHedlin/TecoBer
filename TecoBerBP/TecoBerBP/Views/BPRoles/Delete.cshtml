@@ -1,0 +1,40 @@
+﻿@model TecoBerBP.DataClasses.BPRole
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Ta bort</h2>
+
+<h3>Är du säker på att du vill ta bort den här rollen?</h3>
+<div>
+    <h4>Användarroll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthenticationLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AuthenticationLevel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till lista", "Index")
+        </div>
+    }
+</div>

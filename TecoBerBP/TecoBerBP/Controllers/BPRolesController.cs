@@ -1,94 +1,129 @@
 ﻿using System;
 using System.Collections.Generic;
-//using Microsoft.AspNet.Identity;
-//using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using TecoBerBP.DataModel;
-//using TecoBerBP.ControllersHelper;
-using TecoBerBP.ViewModels;
 using TecoBerBP.DataClasses;
+using TecoBerBP.DataModel;
 
 namespace TecoBerBP.Controllers
 {
     [Authorize]
     public class BPRolesController : Controller
     {
-        private TecoBerBPContext _context = new TecoBerBPContext();
+        private TecoBerBPContext db = new TecoBerBPContext();
 
-        
+        // GET: BPRoles
         public ActionResult Index()
         {
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var user = User.Identity;
-
-                //if (!UserHelper.IsAdminUser(user)) // Only administrator have access to this page.
-                //{
-                //    return RedirectToAction("Index", "Home");
-                //}
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            var Roles = _context.BPRoles.ToList();
-            return View(Roles);
+            return View(db.BPRoles.ToList());
         }
 
-        [HttpGet]
+        // GET: BPRoles/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BPRole bPRole = db.BPRoles.Find(id);
+            if (bPRole == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bPRole);
+        }
+
+        // GET: BPRoles/Create
         public ActionResult Create()
         {
-            return View("CreateRole");
+            return View();
         }
 
-        [HttpPost]
-        public ActionResult Create(BPRoleViewModel model)
-        {
-            // Add new role here!
-            if (ModelState.IsValid)
-            {
-                //ApplicationDbContext context = new ApplicationDbContext();
-                //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
-
-                var role = new BPRole();  // Microsoft.AspNet.Identity.EntityFramework.IdentityRole(); // object with id created.
-                role.Name = model.Name;
-                //roleManager.Create(role);
-
-                ModelState.Clear();
-
-                ViewBag.UserMessage = "New role created!";
-            }
-
-            return View("CreateRole");
-        }
-
+        // POST: BPRoles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id, Name, AuthenticationLevel")] BPRole bPRole)
         {
             if (ModelState.IsValid)
             {
-                _context.BPRoles.Add(bPRole);
-                _context.SaveChanges();
+                db.BPRoles.Add(bPRole);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(bPRole);
         }
 
+        // GET: BPRoles/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BPRole bPRole = db.BPRoles.Find(id);
+            if (bPRole == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bPRole);
+        }
+
+        // POST: BPRoles/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id, Name, AuthenticationLevel")] BPRole bPRole)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(bPRole).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(bPRole);
+        }
+
+        // GET: BPRoles/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BPRole bPRole = db.BPRoles.Find(id);
+            if (bPRole == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bPRole);
+        }
+
+        // POST: BPRoles/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            BPRole bPRole = db.BPRoles.Find(id);
+            db.BPRoles.Remove(bPRole);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                _context.Dispose();
+                db.Dispose();
             }
             base.Dispose(disposing);
         }
-
     }
 }

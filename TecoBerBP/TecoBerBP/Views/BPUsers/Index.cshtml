@@ -24,8 +24,11 @@
             @Html.DisplayNameFor(model => model.OfficeLocation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cell)
+            @Html.DisplayNameFor(model => model.CompanyLead)
         </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Cell)
+        </th>*@
         <th></th>
     </tr>
 
@@ -47,8 +50,11 @@
             @Html.DisplayFor(modelItem => item.OfficeLocation)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.CompanyLead)
+        </td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Cell)
-        </td>                
+        </td>*@                
         <td>
             @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Detaljer", "Details", new { id=item.Id }) |

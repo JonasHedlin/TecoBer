@@ -9,7 +9,9 @@ namespace TecoBerBP.DataModel.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+
         }
 
         protected override void Seed(TecoBerBP.DataModel.TecoBerBPContext context)
@@ -18,14 +20,16 @@ namespace TecoBerBP.DataModel.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+
+            context.BPRoles.AddOrUpdate(
+              p => p.Name,
+              new DataClasses.BPRole { Name = "Administratör", AuthenticationLevel = 10 },
+              new DataClasses.BPRole { Name = "Ekonom", AuthenticationLevel = 5 },
+              new DataClasses.BPRole { Name = "Användare", AuthenticationLevel = 1 }
+            );
+
+
+
         }
     }
 }
