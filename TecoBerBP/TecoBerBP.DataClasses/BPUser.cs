@@ -18,15 +18,18 @@ namespace TecoBerBP.DataClasses
         public virtual string NetUserId { get; set; }
 
         [DisplayName("Förnamn")]
+        [Required]
         public virtual string Name { get; set; }
 
         [DisplayName("Efternamn")]
+        [Required]
         public virtual string SurName { get; set; }
 
         [DisplayName("Kön")]
         public virtual string Gender { get; set; }
 
         [DisplayName("e-mail")]
+        [Required]
         [DataType(DataType.EmailAddress)]
         public virtual string Email { get; set; }
 

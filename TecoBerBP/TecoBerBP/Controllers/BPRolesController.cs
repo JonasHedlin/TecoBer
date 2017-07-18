@@ -48,7 +48,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id, Name, AuthenticationLevel")] BPRole bPRole)
+        public ActionResult Create([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id, Name, AuthenticationLevel")] BPRole bPRole)
+        public ActionResult Edit([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
             if (ModelState.IsValid)
             {

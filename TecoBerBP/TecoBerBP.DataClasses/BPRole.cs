@@ -14,10 +14,12 @@ namespace TecoBerBP.DataClasses
         public virtual int RoleId { get; set; }
 
         [DisplayName("Namn")]
+        [Required]
         public virtual string Name { get; set; }
 
         [Range(1,10)]
         [DisplayName("Rättighetsnivå")]
+        [Required]
         public virtual int AuthenticationLevel { get; set; }
 
     }

@@ -48,7 +48,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Comment,Point,Date")] BPTask bPTask)
+        public ActionResult Create([Bind(Include = "TaskId,Name,Comment,Point,Date")] BPTask bPTask)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Comment,Point,Date")] BPTask bPTask)
+        public ActionResult Edit([Bind(Include = "TaskId,Name,Comment,Point,Date")] BPTask bPTask)
         {
             if (ModelState.IsValid)
             {

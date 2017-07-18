@@ -12,6 +12,7 @@ namespace TecoBerBP.DataClasses
         [Key]
         public virtual int TaskId { get; set; }
 
+        [Required]
         public virtual string Name { get; set; }
         public virtual string Comment { get; set; }
         public virtual int Point { get; set; }

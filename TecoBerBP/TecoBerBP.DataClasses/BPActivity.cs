@@ -14,6 +14,7 @@ namespace TecoBerBP.DataClasses
         public virtual int ActivityId { get; set; }
 
         [DisplayName("Namn")]
+        [Required]
         public virtual string Name { get; set; }
 
         [DisplayName("Poäng")]

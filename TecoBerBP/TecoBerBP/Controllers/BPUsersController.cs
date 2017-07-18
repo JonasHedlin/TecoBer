@@ -49,7 +49,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
+        public ActionResult Create([Bind(Include = "UserId, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
+        public ActionResult Edit([Bind(Include = "UserId, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
         {
             if (ModelState.IsValid)
             {
