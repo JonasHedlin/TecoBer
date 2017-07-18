@@ -4,13 +4,21 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Ta bort användare</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Är du säker på att du vill ta bort den här användaren?</h3>
 <div>
-    <h4>BPUser</h4>
+    <h4>Användare</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.NetUserId)
         </dt>
@@ -20,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Titel)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Titel)
         </dd>
 
         <dt>
@@ -35,14 +43,94 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.AltEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaOfExpertise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AreaOfExpertise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyLead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyLead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OfficeLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfficeLocation)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till lista", "Index")
         </div>
     }
 </div>
