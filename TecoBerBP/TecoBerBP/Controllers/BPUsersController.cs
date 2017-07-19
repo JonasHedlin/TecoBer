@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TecoBerBP.DataModel;
 using TecoBerBP.DataClasses;
+using TecoBerBP.ViewModels;
 
 
 namespace TecoBerBP.Controllers
@@ -20,7 +21,9 @@ namespace TecoBerBP.Controllers
         // GET: BPUsers
         public ActionResult Index()
         {
-            return View(db.BPUsers.ToList());
+            BPUserViewModel BPuVM = new BPUserViewModel();
+            
+            return View(BPuVM.UserList()); // db.BPUsers.ToList()
         }
 
         // GET: BPUsers/Details/5
@@ -49,10 +52,15 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
+        public ActionResult Create([Bind(Include = "UserId, Name, SurName, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
+            "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
+            "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
         {
             if (ModelState.IsValid)
             {
+                if (bPUser.RoleId == 0)
+                    bPUser.RoleId = 1;
+
                 db.BPUsers.Add(bPUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,10 +89,15 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId, Name, Email, AltEmail, Titel, AreaOfExpertise, Cell, Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead")] BPUser bPUser)
+        public ActionResult Edit([Bind(Include = "UserId, Name, SurName, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
+            "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
+            "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
         {
             if (ModelState.IsValid)
             {
+                if (bPUser.RoleId == 0)
+                    bPUser.RoleId = 1;
+
                 db.Entry(bPUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

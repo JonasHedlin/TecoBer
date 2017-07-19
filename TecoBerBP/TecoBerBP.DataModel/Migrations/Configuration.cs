@@ -4,13 +4,16 @@ namespace TecoBerBP.DataModel.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using ImportDataFromExcelClassLibrary;
+    using System.Collections.Generic;
+    using System.Data.Entity.Validation;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TecoBerBP.DataModel.TecoBerBPContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationDataLossAllowed = true; // TODO: Change this, only during development!
 
         }
 
@@ -20,15 +23,66 @@ namespace TecoBerBP.DataModel.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
+            try
+            {
+                context.BPRoles.AddOrUpdate(
+                  p => p.Name,
+                  new DataClasses.BPRole { Name = "Administratör", AuthenticationLevel = 10 },
+                  new DataClasses.BPRole { Name = "Ekonom", AuthenticationLevel = 5 },
+                  new DataClasses.BPRole { Name = "Användare", AuthenticationLevel = 1 }
+                );
 
-            context.BPRoles.AddOrUpdate(
-              p => p.Name,
-              new DataClasses.BPRole { Name = "Administratör", AuthenticationLevel = 10 },
-              new DataClasses.BPRole { Name = "Ekonom", AuthenticationLevel = 5 },
-              new DataClasses.BPRole { Name = "Användare", AuthenticationLevel = 1 }
-            );
+                // Import data (user data) from excel sheet.
+                ImportExcelDataClass IEDC = new ImportExcelDataClass();
 
+                List<BerotecUserClass> BUsers = IEDC.GetExcelData();
 
+                foreach (BerotecUserClass BUser in BUsers)
+                {
+                    context.BPUsers.AddOrUpdate(
+                      u => u.Name,
+                      new DataClasses.BPUser
+                      {
+                          Name = BUser.Name,
+                          SurName = BUser.SurName,
+                          Gender = BUser.Gender,
+                          Email = BUser.Email,
+                          AltEmail = BUser.AltEmail,
+                          Titel = BUser.Titel,
+                          AreaOfExpertise = BUser.AreaOfExpertise,
+                          Cell = BUser.Cell,
+                          Company = BUser.Company,
+                          CompanyNo = BUser.CompanyNo,
+                          CompanyAddress = BUser.CompanyAddress,
+                          CompanyZip = BUser.CompanyZip,
+                          CompanyCity = BUser.CompanyCity,
+                          OfficeLocation = BUser.OfficeLocation,
+                          CompanyLead = BUser.CompanyLead,
+                          DateOfBirth = BUser.DateOfBirth,
+                          JoinedDate = BUser.JoinedDate,
+                          QuitDate = BUser.QuitDate,
+                          Comment = BUser.Comment,
+                          Status = BUser.Status,
+                          RoleId = 1 // Always start as user (standard user).
+                      }
+                    );
+                }
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
 
         }
     }

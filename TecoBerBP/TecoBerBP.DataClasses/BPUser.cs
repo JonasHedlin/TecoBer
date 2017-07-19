@@ -12,80 +12,79 @@ namespace TecoBerBP.DataClasses
     public class BPUser
     {
         [Key]
-        public virtual int UserId { get; set; }
+        public int UserId { get; set; }
 
         [DisplayName("NET user Id")]
-        public virtual string NetUserId { get; set; }
+        public string NetUserId { get; set; }
 
         [DisplayName("Förnamn")]
         [Required]
-        public virtual string Name { get; set; }
+        public string Name { get; set; }
 
         [DisplayName("Efternamn")]
         [Required]
-        public virtual string SurName { get; set; }
+        public string SurName { get; set; }
 
         [DisplayName("Kön")]
-        public virtual string Gender { get; set; }
+        public string Gender { get; set; }
 
-        [DisplayName("e-mail")]
-        [Required]
+        [DisplayName("e-mail")]        
         [DataType(DataType.EmailAddress)]
-        public virtual string Email { get; set; }
+        public string Email { get; set; }
 
         [DisplayName("Alternativ e-mail")]
         [DataType(DataType.EmailAddress)]
-        public virtual string AltEmail { get; set; }
+        public string AltEmail { get; set; }
 
         [DisplayName("Titel")]
-        public virtual string Titel { get; set; }
+        public string Titel { get; set; }
 
         [DisplayName("Verksamhetsområde")]
-        public virtual string AreaOfExpertise { get; set; }
+        public string AreaOfExpertise { get; set; }
 
         [DisplayName("Mobil")]
-        public virtual string Cell { get; set; }
+        public string Cell { get; set; }
 
         [DisplayName("Företag")]
-        public virtual string Company { get; set; }
+        public string Company { get; set; }
 
         [DisplayName("Organisationsnummer")]
-        public virtual string CompanyNo { get; set; }
+        public string CompanyNo { get; set; }
 
         [DisplayName("Adress")]
-        public virtual string CompanyAddress { get; set; }
+        public string CompanyAddress { get; set; }
 
         [DisplayName("Postnummer")]
-        public virtual string CompanyZip { get; set; }
+        public string CompanyZip { get; set; }
 
-        [DisplayName("Företagets stad")]
-        public virtual string CompanyCity { get; set; }
+        [DisplayName("Stad")]
+        public string CompanyCity { get; set; }
 
         [DisplayName("Affärsledare")]
-        public virtual string CompanyLead { get; set; }
+        public string CompanyLead { get; set; }
 
         [DisplayName("Kontorets placering")]
-        public virtual string OfficeLocation { get; set; }
+        public string OfficeLocation { get; set; }
 
         [DisplayName("Födelsedatum")]
-        public virtual string DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         [DisplayName("Startdatum")]
-        public virtual string JoinedDate { get; set; }
+        public string JoinedDate { get; set; }
 
         [DisplayName("Slutdatum")]
-        public virtual string QuitDate { get; set; }        
+        public string QuitDate { get; set; }        
 
         [DisplayName("Kommentar")]
-        public virtual string Comment { get; set; }
+        public string Comment { get; set; }
 
         [DisplayName("Status")]
-        public virtual string Status { get; set; }
+        public string Status { get; set; }
 
-        
-        public virtual int RoleId { get; set; }
+        [DisplayName("Rättighetsnivå")]
+        public int RoleId { get; set; }
 
-        public virtual ICollection<BPActivity> BPActivites { get; set; }
+        public ICollection<BPActivity> BPActivites { get; set; }
 
     }
 }

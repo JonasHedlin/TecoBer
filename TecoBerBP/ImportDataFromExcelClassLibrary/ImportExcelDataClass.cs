@@ -28,6 +28,10 @@ namespace ImportDataFromExcelClassLibrary
             _filePaht = FilePath;
         }
 
+        /// <summary>
+        /// Import data from the given excel data file (FilePath must have been set first!) and returns all users in a list.
+        /// </summary>        
+        /// <returns>A list of users.</returns>
         public List<BerotecUserClass> GetExcelData()
         {
             // first get 'Aktiva konsulter'
@@ -39,6 +43,15 @@ namespace ImportDataFromExcelClassLibrary
             return BUC;
         }
 
+        /// <summary>
+        /// Get last error that occurred in this class.
+        /// </summary>
+        /// <returns>Error message.</returns>
+        public string GetLastError()
+        {
+            return m_MessageLog;
+        }
+        
         private List<BerotecUserClass> GetExcelData(string Status)
         {
             try
@@ -117,13 +130,13 @@ namespace ImportDataFromExcelClassLibrary
                     }
                 }
                 return BUC;
-        }
+            }
             catch(Exception e)
             {
                 m_MessageLog = e.Message;
                 throw e;
             }
 
-}
+        }
     }
 }
