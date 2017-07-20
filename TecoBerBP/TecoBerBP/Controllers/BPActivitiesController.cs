@@ -40,7 +40,7 @@ namespace TecoBerBP.Controllers
         // GET: Activities/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new BPActivity());
         }
 
         // POST: Activities/Create

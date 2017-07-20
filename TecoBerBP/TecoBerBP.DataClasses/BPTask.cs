@@ -10,13 +10,13 @@ namespace TecoBerBP.DataClasses
     public class BPTask
     {
         [Key]
-        public virtual int TaskId { get; set; }
+        public int TaskId { get; set; }
 
         [Required]
-        public virtual string Name { get; set; }
-        public virtual string Comment { get; set; }
-        public virtual int Point { get; set; }
-        public virtual DateTime Date { get; set; }
+        public string Name { get; set; }
+        public string Comment { get; set; }
+        public int Point { get; set; }
+        public DateTime Date { get; set; }
 
     }
 }

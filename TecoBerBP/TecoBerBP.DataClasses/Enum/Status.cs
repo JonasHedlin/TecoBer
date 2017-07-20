@@ -7,13 +7,14 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TecoBerBP.DataClasses.Enum
-{
-    public enum AuthenticationLevel {
-        [Display(Name = "Användare")]
-        User = 1,
-        [Display(Name = "Ekonom")]
-        Economist = 5,
-        [Display(Name = "Administratör")]
-        Admin = 10
+{    
+    public enum Status
+    {
+        [Display(Name = "Aktiv")]
+        Aktive = 1,
+        [Display(Name = "Slutat")]
+        Quit = 0
+        //[Display(Name = "Uppehåll")]
+        //Paused = 10
     };
 }

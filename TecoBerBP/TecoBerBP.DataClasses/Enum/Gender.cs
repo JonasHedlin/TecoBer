@@ -8,12 +8,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TecoBerBP.DataClasses.Enum
 {
-    public enum AuthenticationLevel {
-        [Display(Name = "Användare")]
-        User = 1,
-        [Display(Name = "Ekonom")]
-        Economist = 5,
-        [Display(Name = "Administratör")]
-        Admin = 10
+    public enum Gender
+    {        
+        [Display(Name = "Kvinna")]
+        Female = 0,
+        [Display(Name = "Man")]
+        Male = 1
     };
 }

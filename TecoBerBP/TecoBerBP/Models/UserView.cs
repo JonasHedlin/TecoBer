@@ -15,9 +15,11 @@ namespace TecoBerBP.Models
         public string Name { get; set; }
 
         [DisplayName("Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [DisplayName("Mobil")]
+        [DataType(DataType.PhoneNumber)]
         public string Cell { get; set; }
 
         [DisplayName("Företag")]

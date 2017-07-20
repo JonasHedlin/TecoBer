@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using TecoBerBP.DataModel;
 using TecoBerBP.DataClasses;
 using TecoBerBP.ViewModels;
-
+using TecoBerBP.DataClasses.Enum;
 
 namespace TecoBerBP.Controllers
 {
@@ -58,8 +58,8 @@ namespace TecoBerBP.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (bPUser.RoleId == 0)
-                    bPUser.RoleId = 1;
+                if (bPUser.RoleId <= 0)
+                    bPUser.RoleId = AuthenticationLevel.User; // 1
 
                 db.BPUsers.Add(bPUser);
                 db.SaveChanges();
@@ -95,8 +95,8 @@ namespace TecoBerBP.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (bPUser.RoleId == 0)
-                    bPUser.RoleId = 1;
+                if (bPUser.RoleId <= 0)
+                    bPUser.RoleId = AuthenticationLevel.User; // 1
 
                 db.Entry(bPUser).State = EntityState.Modified;
                 db.SaveChanges();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TecoBerBP.DataClasses.Enum;
 
 namespace TecoBerBP.DataClasses
 {
@@ -26,7 +27,8 @@ namespace TecoBerBP.DataClasses
         public string SurName { get; set; }
 
         [DisplayName("Kön")]
-        public string Gender { get; set; }
+        [EnumDataType(typeof(Gender))]
+        public Gender? Gender { get; set; }
 
         [DisplayName("e-mail")]        
         [DataType(DataType.EmailAddress)]
@@ -43,6 +45,7 @@ namespace TecoBerBP.DataClasses
         public string AreaOfExpertise { get; set; }
 
         [DisplayName("Mobil")]
+        [DataType(DataType.PhoneNumber)]
         public string Cell { get; set; }
 
         [DisplayName("Företag")]
@@ -79,12 +82,17 @@ namespace TecoBerBP.DataClasses
         public string Comment { get; set; }
 
         [DisplayName("Status")]
-        public string Status { get; set; }
+        [EnumDataType(typeof(Status))]
+        public Status? Status { get; set; }
 
-        [DisplayName("Rättighetsnivå")]
-        public int RoleId { get; set; }
+        //[DisplayName("Rättighetsnivå")]
+        //public int RoleId { get; set; }
 
         public ICollection<BPActivity> BPActivites { get; set; }
+
+        [DisplayName("Rättighetsnivå")]
+        [EnumDataType(typeof(AuthenticationLevel))]
+        public AuthenticationLevel? RoleId { get; set; }
 
     }
 }

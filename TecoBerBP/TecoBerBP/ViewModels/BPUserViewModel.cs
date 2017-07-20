@@ -19,7 +19,7 @@ namespace TecoBerBP.ViewModels
                 UserId = u.UserId,
                 Name = u.Name + " " + u.SurName,
                 Email = u.Email,
-                Cell = (u.Cell).Replace('-', ' '),
+                Cell = u.Cell,
                 Company = u.Company,
                 CompanyCity = u.CompanyCity,
                 CompanyLead = u.CompanyLead,

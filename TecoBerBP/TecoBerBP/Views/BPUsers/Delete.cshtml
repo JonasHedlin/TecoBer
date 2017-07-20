@@ -19,6 +19,13 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.NetUserId)
         </dt>
         <dd>
@@ -157,7 +164,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Ta bort" class="btn btn-success" /> |
+            <input type="submit" value="Ta bort" class="btn btn-warning" /> |
             @Html.ActionLink("Tillbaka till lista", "Index")
         </div>
     }

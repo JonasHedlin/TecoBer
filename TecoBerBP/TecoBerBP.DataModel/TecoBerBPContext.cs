@@ -10,6 +10,10 @@ namespace TecoBerBP.DataModel
 {
     public class TecoBerBPContext: DbContext
     {
+        public TecoBerBPContext(): base("DefaultConnection")
+        {
+        }
+
         public DbSet<BPActivity> BPActivities { get; set; }
         public DbSet<BPUser> BPUsers { get; set; }
         public DbSet<BPRole> BPRoles { get; set; }
