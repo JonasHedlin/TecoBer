@@ -3,16 +3,70 @@
     padding-bottom: 20px;
 }
 
-.background-main {
-    background-image: url("images/Background.jpg");
-    /*background-color: #f3f2d9;*/
-    height: 28em;
-    
+/*.background-main {
+    /*background-image: url("images/Bakgrund4.jpg");
+    background-color: #f3f2d9;
+    margin-top: 1em;
+    height: 79em;
+    border-radius: 5px;
+}*/
+
+/*div.image {
+    content: url(images/Bakgrund4.jpg);
+    z-index: -1;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+}*/
+
+.image {
+    position: relative;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    /*margin-right: auto;
+    margin-left: auto;*/
+}
+
+
+
+/*.background-image {
+    top: 1em;
+    z-index: -1;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+    position: relative;
+}*/
+
+div.image-test {
+    position: relative;
+}
+
+​ .container-custom {
+    /*margin-right: auto;
+    margin-left: auto;*/
+    max-width: 1600px; /* or 950px */
 }
 
 .center-text-block {
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 1em;
+    margin-left: 40em;
+    margin-right: 40em;
+    text-align: center;
+    top: 50%;
+    /*background-color: #ffffff;*/
+    opacity: 0.6;
+    min-width: 200px;
+    border-radius: 5px;
+    /*min-height: 100px;*/
+    
 }
 
 
