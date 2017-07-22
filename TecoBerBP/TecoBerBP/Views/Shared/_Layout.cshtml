@@ -17,26 +17,31 @@
     </script>
 
 </head>
-<body class="container-custom"> @*class="container-custom"*@
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">  @*container*@
+<body> 
+    <div class="navbar navbar-inverse navbar-fixed-top navBarColor">
+        <div class="container-fluid">  
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Berotec Busines Partner Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                
+                <div class="navBrandColor">
+                    @Html.ActionLink("Berotec Business Partner Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Konsultuppföljning", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Min Sida", "Index", "Home")</li>
+                    <li>@Html.ActionLink("BeOrange", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Roles", "Index", "BPRoles")</li>
                     <li>@Html.ActionLink("Users", "Index", "BPUsers")</li>
-                    <li>@Html.ActionLink("Activities", "Index", "BPActivities")</li>
+                    <li>@Html.ActionLink("Activities", "Index", "BPActivities")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
