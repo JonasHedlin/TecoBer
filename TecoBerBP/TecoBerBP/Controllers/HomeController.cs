@@ -12,10 +12,8 @@ namespace TecoBerBP.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            string userName = User.Identity.Name;
-            int userId = UserHelper.GetUserID(userName);
-            this.ViewBag.UserId = userId;
+        {            
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View();
         }
@@ -26,9 +24,7 @@ namespace TecoBerBP.Controllers
         {
             ViewBag.Message = "Berotec Business Partner Portal";
 
-            string userName = User.Identity.Name;
-            int userId = UserHelper.GetUserID(userName);
-            this.ViewBag.UserId = userId;
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View();
         }
@@ -37,9 +33,7 @@ namespace TecoBerBP.Controllers
         {
             ViewBag.Message = "Kontaktuppgifter";
 
-            string userName = User.Identity.Name;
-            int userId = UserHelper.GetUserID(userName);
-            this.ViewBag.UserId = userId;
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View();
         }

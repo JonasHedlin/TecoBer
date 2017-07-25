@@ -10,6 +10,7 @@ using TecoBerBP.DataModel;
 using TecoBerBP.DataClasses;
 using TecoBerBP.ViewModels;
 using TecoBerBP.DataClasses.Enum;
+using TecoBerBP.ControllerHelpers;
 
 namespace TecoBerBP.Controllers
 {
@@ -21,6 +22,8 @@ namespace TecoBerBP.Controllers
         // GET: BPUsers
         public ActionResult Index()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             BPUserViewModel BPuVM = new BPUserViewModel();
             
             return View(BPuVM.UserList()); // db.BPUsers.ToList()
@@ -29,21 +32,28 @@ namespace TecoBerBP.Controllers
         // GET: BPUsers/Details/5
         public ActionResult Details(int? id)
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             BPUser bPUser = db.BPUsers.Find(id);
+
             if (bPUser == null)
             {
                 return HttpNotFound();
             }
+
             return View(bPUser);
         }
 
         // GET: BPUsers/Create
         public ActionResult Create()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View();
         }
 
@@ -56,6 +66,8 @@ namespace TecoBerBP.Controllers
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
             "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
@@ -76,11 +88,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             BPUser bPUser = db.BPUsers.Find(id);
+
             if (bPUser == null)
             {
                 return HttpNotFound();
             }
+
             return View(bPUser);
         }
 
@@ -93,6 +110,8 @@ namespace TecoBerBP.Controllers
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
             "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
@@ -102,6 +121,7 @@ namespace TecoBerBP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(bPUser);
         }
 
@@ -112,11 +132,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             BPUser bPUser = db.BPUsers.Find(id);
+
             if (bPUser == null)
             {
                 return HttpNotFound();
             }
+
             return View(bPUser);
         }
 
@@ -125,9 +150,12 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             BPUser bPUser = db.BPUsers.Find(id);
             db.BPUsers.Remove(bPUser);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
