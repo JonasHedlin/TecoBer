@@ -53,13 +53,13 @@ namespace TecoBerBP.DataModel.Migrations
                       {
                           Name = BUser.Name,
                           SurName = BUser.SurName,
-                          CLSID = GetGuid(), // TODO! Must change so that we have this field in the excel-sheet to and only generate a new Guid if that field is empty!
+                          CLSID = string.IsNullOrEmpty(BUser.CLSID) == true ? Guid.NewGuid().ToString() : BUser.CLSID, // TODO! Must change so that we have this field in the excel-sheet to and only generate a new Guid if that field is empty!
                           Gender = (EnGender)(string.IsNullOrEmpty(BUser.Gender) == false ? (BUser.Gender == "M" ? 1 : (BUser.Gender == "K" ? 0 : 10)) : 10), // a ? b : (c ? d : e)
                           Email = BUser.Email,
                           AltEmail = BUser.AltEmail,
                           Titel = BUser.Titel,
                           AreaOfExpertise = BUser.AreaOfExpertise,
-                          Cell = string.IsNullOrEmpty(BUser.Cell) == false? ((BUser.Cell).Replace("-", "")).Replace(" ", "") : "", // No space ' ' or '-' chars in phone number.
+                          Cell = string.IsNullOrEmpty(BUser.Cell) == false ? ((BUser.Cell).Replace("-", "")).Replace(" ", "") : "", // No space ' ' or '-' chars in phone number.
                           Company = BUser.Company,
                           CompanyNo = BUser.CompanyNo,
                           CompanyAddress = BUser.CompanyAddress,
@@ -93,10 +93,6 @@ namespace TecoBerBP.DataModel.Migrations
             }
 
         }
-
-        private string GetGuid()
-        {
-            return Guid.NewGuid().ToString();
-        }
+        
     }
 }

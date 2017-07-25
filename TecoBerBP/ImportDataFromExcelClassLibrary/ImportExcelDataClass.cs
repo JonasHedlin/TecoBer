@@ -112,7 +112,8 @@ namespace ImportDataFromExcelClassLibrary
                                               JoinedDate = (string)c["STARTDATUM"],
                                               QuitDate = (string)c["Slutdatum"],
                                               Comment = (string)c["KOMMENTAR"],
-                                              Status = (string)c["Status"]
+                                              Status = (string)c["Status"],
+                                              CLSID = (string)c["CLSID"]
                                           };
 
 

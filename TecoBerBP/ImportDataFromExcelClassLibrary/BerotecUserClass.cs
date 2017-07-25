@@ -28,5 +28,6 @@ namespace ImportDataFromExcelClassLibrary
         public string QuitDate { get; set; } // Slutdatum
         public string Comment { get; set; } // Kommentar
         public string Status { get; set; } // Aktiv, Vilande, Har slutat (status).
+        public string CLSID { get; set; } // Unique generated ID, Guid.
     }
 }
