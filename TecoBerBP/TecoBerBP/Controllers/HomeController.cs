@@ -32,8 +32,7 @@ namespace TecoBerBP.Controllers
 
                 var UserId = userId.FirstOrDefault<int>();
 
-                if (userId != null)
-                    //if (userId.GetType() == typeof(Int32))
+                if (userId != null)                    
                     UserID = (int)UserId;
 
             }
