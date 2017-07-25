@@ -13,8 +13,8 @@ namespace TecoBerBP.DataClasses.Enum
         [Display(Name = "Aktiv")]
         Aktive = 1,
         [Display(Name = "Slutat")]
-        Quit = 0
-        //[Display(Name = "Uppehåll")]
-        //Paused = 10
+        Quit = 0,
+        [Display(Name = "Uppehåll")]
+        Paused = 10
     };
 }

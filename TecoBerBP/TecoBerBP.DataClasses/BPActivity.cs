@@ -47,5 +47,8 @@ namespace TecoBerBP.DataClasses
             set => _durationUnit = (DurationUnit)value;
         }
 
+        public virtual ICollection<BPUser> BPUsers { get; set; }
+
+
     }
 }

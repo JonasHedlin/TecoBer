@@ -16,6 +16,13 @@ namespace TecoBerBP.DataModel.Migrations
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true; // TODO: Change this, only during development!
 
+            // Activate debugger! (will open in new VS instance)
+            if (System.Diagnostics.Debugger.IsAttached == false)
+            {
+
+                System.Diagnostics.Debugger.Launch();
+
+            }
         }
 
         protected override void Seed(TecoBerBP.DataModel.TecoBerBPContext context)
@@ -46,12 +53,12 @@ namespace TecoBerBP.DataModel.Migrations
                       {
                           Name = BUser.Name,
                           SurName = BUser.SurName,
-                          Gender = (Gender)(BUser.Gender == "M" ? 1 : (BUser.Gender == "K" ? 0 : 10)), // a ? b : (c ? d : e)
+                          Gender = (Gender)(string.IsNullOrEmpty(BUser.Gender) == false ? (BUser.Gender == "M" ? 1 : (BUser.Gender == "K" ? 0 : 10)) : 10), // a ? b : (c ? d : e)
                           Email = BUser.Email,
                           AltEmail = BUser.AltEmail,
                           Titel = BUser.Titel,
                           AreaOfExpertise = BUser.AreaOfExpertise,
-                          Cell = ((BUser.Cell).Replace("-", "")).Replace(" ", ""), // No space ' ' or '-' chars in phone number.
+                          Cell = string.IsNullOrEmpty(BUser.Cell) == false? ((BUser.Cell).Replace("-", "")).Replace(" ", "") : "", // No space ' ' or '-' chars in phone number.
                           Company = BUser.Company,
                           CompanyNo = BUser.CompanyNo,
                           CompanyAddress = BUser.CompanyAddress,
@@ -68,7 +75,7 @@ namespace TecoBerBP.DataModel.Migrations
                       }
                     );
                 }
-                //context.SaveChanges();
+                context.SaveChanges();
             }
             catch (DbEntityValidationException e)
             {

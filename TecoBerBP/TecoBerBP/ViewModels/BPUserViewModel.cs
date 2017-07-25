@@ -9,23 +9,28 @@ namespace TecoBerBP.ViewModels
 {
     public class BPUserViewModel
     {
-        TecoBerBPContext TBBPC = new TecoBerBPContext();
+        TecoBerBPContext TBBPC; // = new TecoBerBPContext();
         List<UserView> _userList = new List<UserView>();
 
+        /// <summary>
+        /// Use this class then only need to show this data in view: Name, Email, Cell, Company, CompanyCity, CompanyLead, OfficeLocation.
+        /// </summary>
         public BPUserViewModel()
         {
-            _userList = TBBPC.BPUsers.Select(u => new UserView
+            using (TBBPC = new TecoBerBPContext())
             {
-                UserId = u.UserId,
-                Name = u.Name + " " + u.SurName,
-                Email = u.Email,
-                Cell = u.Cell,
-                Company = u.Company,
-                CompanyCity = u.CompanyCity,
-                CompanyLead = u.CompanyLead,
-                OfficeLocation = u.OfficeLocation
-            }).ToList();
-                
+                _userList = TBBPC.BPUsers.Select(u => new UserView
+                {
+                    UserId = u.UserId,
+                    Name = u.Name + " " + u.SurName,
+                    Email = u.Email,
+                    Cell = u.Cell,
+                    Company = u.Company,
+                    CompanyCity = u.CompanyCity,
+                    CompanyLead = u.CompanyLead,
+                    OfficeLocation = u.OfficeLocation
+                }).ToList();
+            }  
         }        
 
         internal object UserList()

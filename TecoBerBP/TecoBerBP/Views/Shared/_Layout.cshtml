@@ -33,7 +33,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Konsultuppföljning", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Min Sida", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Min Sida", "Details", "BPUsers", new { id = ViewBag.UserId }, null)</li>
+                    @*@Html.ActionLink("Ändra", "Edit", new { id = item.UserId })*@
                     <li>@Html.ActionLink("BeOrange", "Index", "Home")</li>
                     <li>@Html.ActionLink("Admin", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>

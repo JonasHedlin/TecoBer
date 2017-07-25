@@ -13,8 +13,8 @@ namespace TecoBerBP.DataClasses.Enum
         [Display(Name = "Kvinna")]
         Female = 0,
         [Display(Name = "Man")]
-        Male = 1
-        //[Display(Name = "Annat")]
-        //Paused = 10
+        Male = 1,
+        [Display(Name = "Annat")]
+        Other = 10
     };
 }
