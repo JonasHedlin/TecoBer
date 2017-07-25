@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TecoBerBP.DataClasses.Enum
 {
-    public enum Gender
+    public enum EnGender
     {        
         [Display(Name = "Kvinna")]
         Female = 0,

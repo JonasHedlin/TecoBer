@@ -48,12 +48,13 @@ namespace TecoBerBP.DataModel.Migrations
                 foreach (BerotecUserClass BUser in BUsers)
                 {
                     context.BPUsers.AddOrUpdate(
-                      u => u.Name,
+                      u => u.CLSID,
                       new DataClasses.BPUser
                       {
                           Name = BUser.Name,
                           SurName = BUser.SurName,
-                          Gender = (Gender)(string.IsNullOrEmpty(BUser.Gender) == false ? (BUser.Gender == "M" ? 1 : (BUser.Gender == "K" ? 0 : 10)) : 10), // a ? b : (c ? d : e)
+                          CLSID = GetGuid(), // TODO! Must change so that we have this field in the excel-sheet to and only generate a new Guid if that field is empty!
+                          Gender = (EnGender)(string.IsNullOrEmpty(BUser.Gender) == false ? (BUser.Gender == "M" ? 1 : (BUser.Gender == "K" ? 0 : 10)) : 10), // a ? b : (c ? d : e)
                           Email = BUser.Email,
                           AltEmail = BUser.AltEmail,
                           Titel = BUser.Titel,
@@ -70,8 +71,8 @@ namespace TecoBerBP.DataModel.Migrations
                           JoinedDate = BUser.JoinedDate,
                           QuitDate = BUser.QuitDate,
                           Comment = BUser.Comment,
-                          Status = (Status)(BUser.Status == "Aktiv" ? 1 : (BUser.Status == "Slutat" ? 0 : 10)),
-                          RoleId = AuthenticationLevel.User // (1) Always start as user (standard user).
+                          Status = (EnStatus)(BUser.Status == "Aktiv" ? 1 : (BUser.Status == "Slutat" ? 0 : 10)),
+                          RoleId = EnAuthenticationLevel.User // (1) Always start as user (standard user).
                       }
                     );
                 }
@@ -91,6 +92,11 @@ namespace TecoBerBP.DataModel.Migrations
                 throw;
             }
 
+        }
+
+        private string GetGuid()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

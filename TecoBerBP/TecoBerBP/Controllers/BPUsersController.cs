@@ -59,7 +59,7 @@ namespace TecoBerBP.Controllers
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
-                    bPUser.RoleId = AuthenticationLevel.User; // 1
+                    bPUser.RoleId = EnAuthenticationLevel.User; // 1
 
                 db.BPUsers.Add(bPUser);
                 db.SaveChanges();
@@ -96,7 +96,7 @@ namespace TecoBerBP.Controllers
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
-                    bPUser.RoleId = AuthenticationLevel.User; // 1
+                    bPUser.RoleId = EnAuthenticationLevel.User; // 1
 
                 db.Entry(bPUser).State = EntityState.Modified;
                 db.SaveChanges();

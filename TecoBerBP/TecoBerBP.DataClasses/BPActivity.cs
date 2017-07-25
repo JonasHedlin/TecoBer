@@ -11,7 +11,7 @@ namespace TecoBerBP.DataClasses
 {    
     public class BPActivity
     {
-        private DurationUnit _durationUnit = Enum.DurationUnit.Month;
+        private EnDurationUnit _durationUnit = Enum.EnDurationUnit.Month;
         private int _point = 1;
         private int _duration = 12;
 
@@ -40,11 +40,11 @@ namespace TecoBerBP.DataClasses
         //public virtual int DurationUnit { get; set; } // Day, Week, Month, Year
 
         [DisplayName("Enhet")]
-        [EnumDataType(typeof(DurationUnit))]
-        public DurationUnit? DurationUnit
+        [EnumDataType(typeof(EnDurationUnit))]
+        public EnDurationUnit? DurationUnit
         {
             get { return _durationUnit; }
-            set => _durationUnit = (DurationUnit)value;
+            set => _durationUnit = (EnDurationUnit)value;
         }
 
         public virtual ICollection<BPUser> BPUsers { get; set; }

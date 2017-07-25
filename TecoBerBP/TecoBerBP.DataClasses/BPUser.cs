@@ -15,8 +15,8 @@ namespace TecoBerBP.DataClasses
         [Key]
         public int UserId { get; set; }
 
-        [DisplayName("NET user Id")]
-        public string NetUserId { get; set; }
+        [DisplayName("CLSID")]
+        public string CLSID { get; set; }
 
         [DisplayName("Förnamn")]
         [Required]
@@ -27,8 +27,8 @@ namespace TecoBerBP.DataClasses
         public string SurName { get; set; }
 
         [DisplayName("Kön")]
-        [EnumDataType(typeof(Gender))]
-        public Gender? Gender { get; set; }
+        [EnumDataType(typeof(EnGender))]
+        public EnGender? Gender { get; set; }
 
         [DisplayName("e-mail")]        
         [DataType(DataType.EmailAddress)]
@@ -82,8 +82,8 @@ namespace TecoBerBP.DataClasses
         public string Comment { get; set; }
 
         [DisplayName("Status")]
-        [EnumDataType(typeof(Status))]
-        public Status? Status { get; set; }
+        [EnumDataType(typeof(EnStatus))]
+        public EnStatus? Status { get; set; }
 
         //[DisplayName("Rättighetsnivå")]
         //public int RoleId { get; set; }
@@ -91,8 +91,8 @@ namespace TecoBerBP.DataClasses
         public virtual ICollection<BPActivity> BPActivites { get; set; }
 
         [DisplayName("Rättighetsnivå")]
-        [EnumDataType(typeof(AuthenticationLevel))]
-        public AuthenticationLevel? RoleId { get; set; }
+        [EnumDataType(typeof(EnAuthenticationLevel))]
+        public EnAuthenticationLevel? RoleId { get; set; }
 
     }
 }

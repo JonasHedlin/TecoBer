@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TecoBerBP.DataClasses.Enum
 {    
-    public enum Status
+    public enum EnStatus
     {
         [Display(Name = "Aktiv")]
         Aktive = 1,

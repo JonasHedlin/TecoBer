@@ -8,7 +8,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TecoBerBP.DataClasses.Enum
 {
-    public enum DurationUnit {
+    public enum EnDurationUnit
+    {
         [Display(Name = "Timmar")]
         Hour,
         [Display(Name = "Dagar")]
