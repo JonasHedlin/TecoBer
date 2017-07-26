@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TecoBerBP.DataClasses;
 using TecoBerBP.DataModel;
+using TecoBerBP.ControllerHelpers;
 
 namespace TecoBerBP.Controllers
 {
@@ -19,6 +20,8 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles
         public ActionResult Index()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(db.BPRoles.ToList());
         }
 
@@ -29,17 +32,24 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             BPRole bPRole = db.BPRoles.Find(id);
+
             if (bPRole == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(bPRole);
         }
 
         // GET: BPRoles/Create
         public ActionResult Create()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View();
         }
 
@@ -57,6 +67,8 @@ namespace TecoBerBP.Controllers
                 return RedirectToAction("Index");
             }
 
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(bPRole);
         }
 
@@ -67,11 +79,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             BPRole bPRole = db.BPRoles.Find(id);
+
             if (bPRole == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(bPRole);
         }
 
@@ -88,6 +105,9 @@ namespace TecoBerBP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(bPRole);
         }
 
@@ -98,11 +118,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             BPRole bPRole = db.BPRoles.Find(id);
+
             if (bPRole == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(bPRole);
         }
 

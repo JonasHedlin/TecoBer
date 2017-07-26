@@ -31,9 +31,7 @@ namespace TecoBerBP.Controllers
 
         // GET: BPUsers/Details/5
         public ActionResult Details(int? id)
-        {
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+        {            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -45,6 +43,8 @@ namespace TecoBerBP.Controllers
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(bPUser);
         }
@@ -62,21 +62,24 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId, Name, SurName, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
+        public ActionResult Create([Bind(Include = "UserId, Name, SurName, CLSID, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
             "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
-        {
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+        {            
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
                     bPUser.RoleId = EnAuthenticationLevel.User; // 1
 
+                if (string.IsNullOrEmpty(bPUser.CLSID) == true)
+                    bPUser.CLSID = Guid.NewGuid().ToString();
+
                 db.BPUsers.Add(bPUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(bPUser);
         }
@@ -88,15 +91,15 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+            
             BPUser bPUser = db.BPUsers.Find(id);
 
             if (bPUser == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(bPUser);
         }
@@ -106,21 +109,24 @@ namespace TecoBerBP.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId, Name, SurName, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
+        public ActionResult Edit([Bind(Include = "UserId, Name, SurName, CLSID, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
             "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
-        {
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+        {            
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
                     bPUser.RoleId = EnAuthenticationLevel.User; // 1
 
+                if (string.IsNullOrEmpty(bPUser.CLSID) == true) // TODO! Remove this code!
+                    bPUser.CLSID = Guid.NewGuid().ToString();
+
                 db.Entry(bPUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(bPUser);
         }
@@ -132,15 +138,15 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+            
             BPUser bPUser = db.BPUsers.Find(id);
 
             if (bPUser == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(bPUser);
         }
@@ -149,9 +155,7 @@ namespace TecoBerBP.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
-
+        {            
             BPUser bPUser = db.BPUsers.Find(id);
             db.BPUsers.Remove(bPUser);
             db.SaveChanges();

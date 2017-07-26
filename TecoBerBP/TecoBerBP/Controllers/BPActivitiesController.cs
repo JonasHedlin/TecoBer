@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using TecoBerBP.DataModel;
 using TecoBerBP.DataClasses;
+using TecoBerBP.ControllerHelpers;
+
 
 namespace TecoBerBP.Controllers
 {
@@ -19,6 +21,8 @@ namespace TecoBerBP.Controllers
         // GET: Activities
         public ActionResult Index()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(db.BPActivities.ToList());
         }
 
@@ -29,17 +33,24 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             BPActivity activity = db.BPActivities.Find(id);
+
             if (activity == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(activity);
         }
 
         // GET: Activities/Create
         public ActionResult Create()
         {
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(new BPActivity());
         }
 
@@ -57,6 +68,8 @@ namespace TecoBerBP.Controllers
                 return RedirectToAction("Index");
             }
 
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(activity);
         }
 
@@ -67,11 +80,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             BPActivity activity = db.BPActivities.Find(id);
+
             if (activity == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(activity);
         }
 
@@ -88,6 +106,9 @@ namespace TecoBerBP.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(activity);
         }
 
@@ -98,11 +119,16 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             BPActivity activity = db.BPActivities.Find(id);
+
             if (activity == null)
             {
                 return HttpNotFound();
             }
+
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+
             return View(activity);
         }
 

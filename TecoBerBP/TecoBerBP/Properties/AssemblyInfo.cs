@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TecoBerBP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Berotec Business Partner Portal")]
+[assembly: AssemblyDescription("Portal for Berotec users and business partners.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Berotec")]
 [assembly: AssemblyProduct("TecoBerBP")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
