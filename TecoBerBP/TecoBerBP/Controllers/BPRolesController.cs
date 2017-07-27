@@ -20,6 +20,9 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles
         public ActionResult Index()
         {
+            if(!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(db.BPRoles.ToList());
@@ -28,6 +31,9 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles/Details/5
         public ActionResult Details(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -48,6 +54,9 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles/Create
         public ActionResult Create()
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View();
@@ -60,6 +69,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
                 db.BPRoles.Add(bPRole);
@@ -75,6 +87,9 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -99,6 +114,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
                 db.Entry(bPRole).State = EntityState.Modified;
@@ -114,6 +132,9 @@ namespace TecoBerBP.Controllers
         // GET: BPRoles/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -136,6 +157,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             BPRole bPRole = db.BPRoles.Find(id);
             db.BPRoles.Remove(bPRole);
             db.SaveChanges();

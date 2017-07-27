@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BPActivity.cs" />
+    <Compile Include="BPManagement.cs" />
     <Compile Include="BPUser.cs" />
     <Compile Include="BPRole.cs" />
+    <Compile Include="BPUserActivity.cs" />
     <Compile Include="Enum\AuthenticationLevel.cs" />
     <Compile Include="Enum\DurationUnit.cs" />
     <Compile Include="Enum\Gender.cs" />

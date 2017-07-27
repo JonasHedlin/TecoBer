@@ -85,10 +85,7 @@ namespace TecoBerBP.DataClasses
         [EnumDataType(typeof(EnStatus))]
         public EnStatus? Status { get; set; }
 
-        //[DisplayName("Rättighetsnivå")]
-        //public int RoleId { get; set; }
-
-        public virtual ICollection<BPActivity> BPActivites { get; set; }
+        public virtual ICollection<BPUserActivity> BPUserActivites { get; set; }
 
         [DisplayName("Rättighetsnivå")]
         [EnumDataType(typeof(EnAuthenticationLevel))]

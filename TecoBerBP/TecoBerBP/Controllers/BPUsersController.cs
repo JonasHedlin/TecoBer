@@ -52,6 +52,9 @@ namespace TecoBerBP.Controllers
         // GET: BPUsers/Create
         public ActionResult Create()
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View();
@@ -64,8 +67,11 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserId, Name, SurName, CLSID, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
-            "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
-        {            
+            "QuitDate, Comment, Status, RoleID")] BPUser bPUser)
+        {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
                 if (bPUser.RoleId <= 0)
@@ -91,17 +97,23 @@ namespace TecoBerBP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             BPUser bPUser = db.BPUsers.Find(id);
 
-            if (bPUser == null)
-            {
-                return HttpNotFound();
-            }
+            if (UserHelper.IsUserAdmin(User.Identity.Name) || id == UserHelper.GetUserID(User.Identity.Name))
+            {                
+                if (bPUser == null)
+                {
+                    return HttpNotFound();
+                }
 
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+                this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+                
+            }
+            else RedirectToAction("Index", "Home");
 
             return View(bPUser);
+
         }
 
         // POST: BPUsers/Edit/5
@@ -111,22 +123,28 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "UserId, Name, SurName, CLSID, Gender, Email, AltEmail, Titel, AreaOfExpertise, Cell, " +
             "Company, CompanyNo, CompanyAddress, CompanyZip, CompanyCity, OfficeLocation, CompanyLead, DateOfBirth, JoinedDate, " +
-            "QuiteDate, Comment, Status, RoleID")] BPUser bPUser)
-        {            
-            if (ModelState.IsValid)
+            "QuitDate, Comment, Status, RoleID")] BPUser bPUser)
+        {
+            if (UserHelper.IsUserAdmin(User.Identity.Name) || bPUser.UserId == UserHelper.GetUserID(User.Identity.Name))
             {
-                if (bPUser.RoleId <= 0)
-                    bPUser.RoleId = EnAuthenticationLevel.User; // 1
+                
+                if (ModelState.IsValid)
+                {
+                    if (bPUser.RoleId <= 0)
+                        bPUser.RoleId = EnAuthenticationLevel.User; // 1
 
-                if (string.IsNullOrEmpty(bPUser.CLSID) == true) // TODO! Remove this code!
-                    bPUser.CLSID = Guid.NewGuid().ToString();
+                    //if (string.IsNullOrEmpty(bPUser.CLSID) == true) // TODO! Remove this code!
+                    //    bPUser.CLSID = Guid.NewGuid().ToString();
 
-                db.Entry(bPUser).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.Entry(bPUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+                
             }
-
-            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+            else RedirectToAction("Index", "Home");
 
             return View(bPUser);
         }
@@ -134,6 +152,9 @@ namespace TecoBerBP.Controllers
         // GET: BPUsers/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -155,7 +176,10 @@ namespace TecoBerBP.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {            
+        {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             BPUser bPUser = db.BPUsers.Find(id);
             db.BPUsers.Remove(bPUser);
             db.SaveChanges();

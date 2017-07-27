@@ -21,6 +21,9 @@ namespace TecoBerBP.Controllers
         // GET: Activities
         public ActionResult Index()
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(db.BPActivities.ToList());
@@ -29,6 +32,9 @@ namespace TecoBerBP.Controllers
         // GET: Activities/Details/5
         public ActionResult Details(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -49,6 +55,9 @@ namespace TecoBerBP.Controllers
         // GET: Activities/Create
         public ActionResult Create()
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
             return View(new BPActivity());
@@ -61,6 +70,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ActivityId, Name, Point, Duration, DurationUnit")] BPActivity activity)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
                 db.BPActivities.Add(activity);
@@ -76,6 +88,9 @@ namespace TecoBerBP.Controllers
         // GET: Activities/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,6 +115,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ActivityId, Name, Point, Duration, DurationUnit")] BPActivity activity)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (ModelState.IsValid)
             {
                 db.Entry(activity).State = EntityState.Modified;
@@ -115,6 +133,9 @@ namespace TecoBerBP.Controllers
         // GET: Activities/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -137,6 +158,9 @@ namespace TecoBerBP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (!UserHelper.IsUserAdmin(User.Identity.Name))
+                RedirectToAction("Index", "Home");
+
             BPActivity activity = db.BPActivities.Find(id);
             db.BPActivities.Remove(activity);
             db.SaveChanges();
