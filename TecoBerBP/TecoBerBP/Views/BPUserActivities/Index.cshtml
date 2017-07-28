@@ -9,8 +9,9 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+
+<table class="table">    
+    <tr>        
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -23,11 +24,11 @@
         <th>
             @Html.DisplayNameFor(model => model.CompanyLeadUserId)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
+                        
         <th>
             @Html.DisplayNameFor(model => model.ActivityId)
+        </th>
+        <th>            
         </th>
         <th></th>
     </tr>
@@ -46,16 +47,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.CompanyLeadUserId)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.ActivityId)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserActivtyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserActivtyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserActivtyId })
+            @Html.HiddenFor(model => item.UserId)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserActivityId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserActivityId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserActivityId })
         </td>
     </tr>
 }

@@ -13,7 +13,7 @@ namespace TecoBerBP.ViewModels
         List<UserView> _userList = new List<UserView>();
 
         /// <summary>
-        /// Use this class then only need to show this data in view: Name, Email, Cell, Company, CompanyCity, CompanyLead, OfficeLocation.
+        /// Use this class then the view only need to show this data: Name, Email, Cell, Company, CompanyCity, CompanyLead, OfficeLocation.
         /// </summary>
         public BPUserViewModel()
         {

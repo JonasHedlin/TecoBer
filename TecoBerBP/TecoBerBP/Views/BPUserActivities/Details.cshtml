@@ -10,6 +10,9 @@
     <h4>BPUserActivity</h4>
     <hr />
     <dl class="dl-horizontal">
+        
+        @Html.HiddenFor(model => model.UserId)
+
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -40,15 +43,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.CompanyLeadUserId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
+        </dd>        
 
         <dt>
             @Html.DisplayNameFor(model => model.ActivityId)
@@ -61,6 +56,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserActivtyId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserActivityId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

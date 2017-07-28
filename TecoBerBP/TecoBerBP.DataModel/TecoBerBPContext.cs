@@ -15,10 +15,15 @@ namespace TecoBerBP.DataModel
         }
 
         public DbSet<BPActivity> BPActivities { get; set; }
+
         public DbSet<BPUser> BPUsers { get; set; }
+
         public DbSet<BPRole> BPRoles { get; set; }
+
         public DbSet<BPTask> BPTasks { get; set; }
 
-        public System.Data.Entity.DbSet<TecoBerBP.DataClasses.BPUserActivity> BPUserActivities { get; set; }
+        public DbSet<BPUserActivity> BPUserActivities { get; set; }
+
+        public DbSet<BPManagement> BPManagement { get; set; }
     }
 }
