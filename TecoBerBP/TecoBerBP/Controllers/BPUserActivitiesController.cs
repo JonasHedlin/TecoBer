@@ -18,6 +18,8 @@ namespace TecoBerBP.Controllers
         // GET: BPUserActivities
         public ActionResult Index()
         {
+
+
             return View(db.BPUserActivities.ToList());
         }
 
