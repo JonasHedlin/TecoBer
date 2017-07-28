@@ -28,11 +28,11 @@ namespace TecoBerBP.DataClasses
         [DisplayName("Affärsledare")]
         public int CompanyLeadUserId { get; set; }
 
-        [Required]        
+        [Required]
         public int UserId { get; set; }
 
         [Required]
-        [DisplayName("Aktivitets-kategori")]        
+        [DisplayName("Aktivitets-kategori")]
         public int ActivityId { get; set; }
 
     }

@@ -47,10 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201707201205330_RoleId.cs" />
-    <Compile Include="Migrations\201707201205330_RoleId.Designer.cs">
-      <DependentUpon>201707201205330_RoleId.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TecoBerBPContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,11 +65,6 @@
       <Project>{3a52eaee-e6e6-40a1-b14c-7a009c2a85ff}</Project>
       <Name>TecoBerBP.DataClasses</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707201205330_RoleId.resx">
-      <DependentUpon>201707201205330_RoleId.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
