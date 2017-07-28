@@ -12,7 +12,7 @@ namespace TecoBerBP.DataClasses
     public class BPUserActivity
     {
         [Key]
-        public int UserActivtyId { get; set; }
+        public int UserActivityId { get; set; }
 
         [Required]
         [DisplayName("Namn")]

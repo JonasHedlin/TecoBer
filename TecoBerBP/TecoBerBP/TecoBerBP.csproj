@@ -190,6 +190,7 @@
     <Compile Include="Controllers\BPActivitiesController.cs" />
     <Compile Include="Controllers\BPRolesController.cs" />
     <Compile Include="Controllers\BPTasksController.cs" />
+    <Compile Include="Controllers\BPUserActivitiesController.cs" />
     <Compile Include="Controllers\BPUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -282,6 +283,11 @@
     <Content Include="Views\BPRoles\Edit.cshtml" />
     <Content Include="Views\BPRoles\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Views\BPUserActivities\Create.cshtml" />
+    <Content Include="Views\BPUserActivities\Delete.cshtml" />
+    <Content Include="Views\BPUserActivities\Details.cshtml" />
+    <Content Include="Views\BPUserActivities\Edit.cshtml" />
+    <Content Include="Views\BPUserActivities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
