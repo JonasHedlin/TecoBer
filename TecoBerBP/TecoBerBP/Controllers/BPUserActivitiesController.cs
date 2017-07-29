@@ -18,7 +18,34 @@ namespace TecoBerBP.Controllers
         // GET: BPUserActivities
         public ActionResult Index()
         {
+            TecoBerBPContext TBBPC;
 
+            using (TBBPC = new TecoBerBPContext())
+            {
+                var userActivities = from ua in TBBPC.BPUserActivities
+                                     join u in TBBPC.BPUsers on ua.UserId equals u.UserId
+                                     join a in TBBPC.BPActivities on ua.ActivityId equals a.ActivityId
+                                     select new
+                                     {
+                                         UserActivityId = ua.UserActivityId,
+                                         Name = ua.Name,
+                                         DateForActivity = ua.DateForActivity,
+                                         Description = ua.Description,
+                                         CompanyLead = u.Name + " " + u.SurName,
+                                         Activity = a.Name
+                                     };
+
+            }
+    //        var categorizedProducts =
+    //from p in product
+    //join pc in productcategory on p.Id equals pc.ProdId
+    //join c in category on pc.CatId equals c.Id
+    //select new
+    //{
+    //    ProdId = p.Id, // or pc.ProdId
+    //    CatId = c.CatId
+    //    // other assignments
+    //};
 
             return View(db.BPUserActivities.ToList());
         }

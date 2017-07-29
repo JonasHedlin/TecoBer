@@ -17,12 +17,12 @@ namespace TecoBerBP.DataModel.Migrations
             AutomaticMigrationDataLossAllowed = true; // TODO: Change this, only during development!
 
             // Activate debugger! (will open in new VS instance)
-            if (System.Diagnostics.Debugger.IsAttached == false)
-            {
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //{
 
-                System.Diagnostics.Debugger.Launch();
+            //    System.Diagnostics.Debugger.Launch();
 
-            }
+            //}
         }
 
         protected override void Seed(TecoBerBP.DataModel.TecoBerBPContext context)
