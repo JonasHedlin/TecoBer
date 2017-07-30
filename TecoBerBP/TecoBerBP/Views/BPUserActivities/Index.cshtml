@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TecoBerBP.DataClasses.BPUserActivity>
+﻿@model IEnumerable<TecoBerBP.Models.UserActivityView>
 
 @{
     ViewBag.Title = "Index";
@@ -19,15 +19,14 @@
             @Html.DisplayNameFor(model => model.DateForActivity)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Activity)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CompanyLeadUserId)
-        </th>
-                        
-        <th>
-            @Html.DisplayNameFor(model => model.ActivityId)
-        </th>
+            @Html.DisplayNameFor(model => model.CompanyLead)
+        </th>                                
         <th>            
         </th>
         <th></th>
@@ -42,20 +41,17 @@
             @Html.DisplayFor(modelItem => item.DateForActivity)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Activity)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyLeadUserId)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityId)
-        </td>
-
+            @Html.DisplayFor(modelItem => item.CompanyLead)
+        </td>                
         <td>
             @Html.HiddenFor(model => item.UserId)
         </td>
-
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.UserActivityId }) |
             @Html.ActionLink("Details", "Details", new { id=item.UserActivityId }) |

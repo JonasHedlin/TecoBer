@@ -6,11 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TecoBerBP.ControllerHelpers;
 using TecoBerBP.DataClasses;
 using TecoBerBP.DataModel;
+using TecoBerBP.ViewModels;
 
 namespace TecoBerBP.Controllers
 {
+    [Authorize]
     public class BPUserActivitiesController : Controller
     {
         private TecoBerBPContext db = new TecoBerBPContext();
@@ -19,13 +22,19 @@ namespace TecoBerBP.Controllers
         public ActionResult Index()
         {
             TecoBerBPContext TBBPC;
+            List<UserActivityViewModel> _userList = new List<UserActivityViewModel>();
+
+            int userId = 0;
+            this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
+            userId = ViewBag.UserId;
 
             using (TBBPC = new TecoBerBPContext())
             {
                 var userActivities = from ua in TBBPC.BPUserActivities
-                                     join u in TBBPC.BPUsers on ua.UserId equals u.UserId
+                                     join u in TBBPC.BPUsers on ua.CompanyLeadUserId equals u.UserId
                                      join a in TBBPC.BPActivities on ua.ActivityId equals a.ActivityId
-                                     select new
+                                     where ua.UserId == userId
+                                     select new UserActivityViewModel
                                      {
                                          UserActivityId = ua.UserActivityId,
                                          Name = ua.Name,
@@ -35,19 +44,11 @@ namespace TecoBerBP.Controllers
                                          Activity = a.Name
                                      };
 
-            }
-    //        var categorizedProducts =
-    //from p in product
-    //join pc in productcategory on p.Id equals pc.ProdId
-    //join c in category on pc.CatId equals c.Id
-    //select new
-    //{
-    //    ProdId = p.Id, // or pc.ProdId
-    //    CatId = c.CatId
-    //    // other assignments
-    //};
+                _userList = userActivities.ToList();
 
-            return View(db.BPUserActivities.ToList());
+            }
+
+            return View(_userList); // db.BPUserActivities.ToList()
         }
 
         // GET: BPUserActivities/Details/5

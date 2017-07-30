@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace TecoBerBP.Models
+namespace TecoBerBP.ViewModels
 {
-    public class UserActivityView
+    public class UserActivityViewModel
     {
         public int UserActivityId { get; set; }
 
@@ -21,7 +21,7 @@ namespace TecoBerBP.Models
         public DateTime DateForActivity { get; set; }
 
         [DisplayName("Beskrivning")]        
-        public string Deskription { get; set; }
+        public string Description { get; set; }
 
         [DisplayName("Affärsledare")]
         public string CompanyLead { get; set; }

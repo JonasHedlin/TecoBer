@@ -5,9 +5,9 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace TecoBerBP.Models
+namespace TecoBerBP.ViewModels
 {
-    public class UserView
+    public class UserViewModel
     {
         public int UserId { get; set; }
 

@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TecoBerBP.DataModel;
-using TecoBerBP.Models;
+using TecoBerBP.ViewModels;
 
-namespace TecoBerBP.ViewModels
+namespace TecoBerBP.Models
 {
-    public class BPUserViewModel
+    public class BPUserModel
     {
         TecoBerBPContext TBBPC; // = new TecoBerBPContext();
-        List<UserView> _userList = new List<UserView>();
+        List<UserViewModel> _userList = new List<UserViewModel>();
 
         /// <summary>
         /// Use this class then the view only need to show this data: Name, Email, Cell, Company, CompanyCity, CompanyLead, OfficeLocation.
         /// </summary>
-        public BPUserViewModel()
+        public BPUserModel()
         {
             using (TBBPC = new TecoBerBPContext())
             {
-                _userList = TBBPC.BPUsers.Select(u => new UserView
+                _userList = TBBPC.BPUsers.Select(u => new UserViewModel
                 {
                     UserId = u.UserId,
                     Name = u.Name + " " + u.SurName,

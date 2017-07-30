@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TecoBerBP.DataModel;
 using TecoBerBP.DataClasses;
-using TecoBerBP.ViewModels;
+using TecoBerBP.Models;
 using TecoBerBP.DataClasses.Enum;
 using TecoBerBP.ControllerHelpers;
 
@@ -24,9 +24,9 @@ namespace TecoBerBP.Controllers
         {
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
-            BPUserViewModel BPuVM = new BPUserViewModel();
+            BPUserModel BPuM = new BPUserModel();
             
-            return View(BPuVM.UserList()); // db.BPUsers.ToList()
+            return View(BPuM.UserList()); // db.BPUsers.ToList()
         }
 
         // GET: BPUsers/Details/5
