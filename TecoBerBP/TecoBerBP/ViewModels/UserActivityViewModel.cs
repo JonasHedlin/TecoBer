@@ -17,7 +17,9 @@ namespace TecoBerBP.ViewModels
         [DisplayName("Namn")]
         public string Name { get; set; }
 
-        [DisplayName("Datum")]        
+        [DisplayName("Datum")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateForActivity { get; set; }
 
         [DisplayName("Beskrivning")]        

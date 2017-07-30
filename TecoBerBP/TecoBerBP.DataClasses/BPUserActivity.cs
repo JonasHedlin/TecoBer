@@ -20,6 +20,8 @@ namespace TecoBerBP.DataClasses
 
         [Required]
         [DisplayName("Datum för aktivitet")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime DateForActivity { get; set; }
 
         [DisplayName("Beskrivning")]

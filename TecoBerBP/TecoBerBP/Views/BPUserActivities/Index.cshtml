@@ -1,13 +1,13 @@
-﻿@model IEnumerable<TecoBerBP.Models.UserActivityView>
+﻿@model IEnumerable<TecoBerBP.ViewModels.UserActivityViewModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Utförda aktiviteter</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa ny aktivitet", "Create")
 </p>
 
 <table class="table">    
@@ -53,9 +53,9 @@
             @Html.HiddenFor(model => item.UserId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserActivityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserActivityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserActivityId })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.UserActivityId }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.UserActivityId }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.UserActivityId })
         </td>
     </tr>
 }
