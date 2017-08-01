@@ -21,7 +21,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Index()
         {
             if(!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
@@ -32,7 +32,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Details(int? id)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             if (id == null)
             {
@@ -55,7 +55,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Create()
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
 
@@ -70,7 +70,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Create([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Edit(int? id)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             if (id == null)
             {
@@ -115,7 +115,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Edit([Bind(Include = "RoleId, Name, AuthenticationLevel")] BPRole bPRole)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             if (ModelState.IsValid)
             {
@@ -133,7 +133,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Delete(int? id)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             if (id == null)
             {
@@ -158,7 +158,7 @@ namespace TecoBerBP.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             if (!UserHelper.IsUserAdmin(User.Identity.Name))
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
 
             BPRole bPRole = db.BPRoles.Find(id);
             db.BPRoles.Remove(bPRole);
