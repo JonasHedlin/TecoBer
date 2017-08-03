@@ -11,7 +11,7 @@ using TecoBerBP.DataModel;
 
 namespace TecoBerBP.Controllers
 {
-
+    [Authorize]
     public class BPTasksController : Controller
     {
         private TecoBerBPContext db = new TecoBerBPContext();

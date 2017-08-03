@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TecoBerBP.Models;
 using TecoBerBP.ControllerHelpers;
 using TecoBerBP.DataClasses;
 using TecoBerBP.DataModel;
@@ -21,34 +22,17 @@ namespace TecoBerBP.Controllers
         // GET: BPUserActivities
         public ActionResult Index()
         {
-            TecoBerBPContext TBBPC;
-            List<UserActivityViewModel> _userList = new List<UserActivityViewModel>();
+            //TecoBerBPContext TBBPC;
+            List<UserActivityViewModel> userActivityList = new List<UserActivityViewModel>();
 
             int userId = 0;
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
             userId = ViewBag.UserId;
 
-            using (TBBPC = new TecoBerBPContext())
-            {
-                var userActivities = from ua in TBBPC.BPUserActivities
-                                     join u in TBBPC.BPUsers on ua.CompanyLeadUserId equals u.UserId
-                                     join a in TBBPC.BPActivities on ua.ActivityId equals a.ActivityId
-                                     where ua.UserId == userId
-                                     select new UserActivityViewModel
-                                     {
-                                         UserActivityId = ua.UserActivityId,
-                                         Name = ua.Name,
-                                         DateForActivity = ua.DateForActivity,
-                                         Description = ua.Description,
-                                         CompanyLead = u.Name + " " + u.SurName,
-                                         Activity = a.Name
-                                     };
+            BPUserActivityModel BPuAM = new BPUserActivityModel(userId);
+                        
 
-                _userList = userActivities.ToList();
-
-            }
-
-            return View(_userList); // db.BPUserActivities.ToList()
+            return View(BPuAM.UserActivityList()); // db.BPUserActivities.ToList()           
         }
 
         // GET: BPUserActivities/Details/5
