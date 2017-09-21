@@ -23,7 +23,7 @@ namespace TecoBerBP.Controllers
         public ActionResult Index()
         {
             //TecoBerBPContext TBBPC;
-            List<UserActivityViewModel> userActivityList = new List<UserActivityViewModel>();
+            //List<UserActivityViewModel> userActivityList = new List<UserActivityViewModel>();
 
             int userId = 0;
             this.ViewBag.UserId = UserHelper.GetUserID(User.Identity.Name);
